@@ -22,7 +22,15 @@ async function setAnswer(ans=null, overrides={}){
 
 	let r = null
 
-	if(ans.type == 'remote'){
+	let aType = ans.type;
+	if (ans.type == 'mixed') {
+		if (Math.floor(Math.random() * 2) == 0) {
+			aType = 'local';
+		} else {
+			aType = 'remote';
+		}
+	}
+	if(aType == 'remote'){
 		r = await media.findRemoteGif(q)
 		console.log(`MEDIA URL > ${r}`)
 	} else {
