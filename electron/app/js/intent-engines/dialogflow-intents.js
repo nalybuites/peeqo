@@ -3,6 +3,7 @@ const weather = require('js/skills/weather')
 const Timer = require('js/skills/timer')
 const event = require('js/events/events')
 const responses = require('js/responses/responses')
+const googleplaymusic = require('js/skills/google_play_music');
 
 function parseIntent(cmd){
 
@@ -26,6 +27,10 @@ function parseIntent(cmd){
 			let timer = new Timer(cmd.params.time.numberValue, cmd.params.timeUnit.stringValue)
 			timer.startTimer()
 			break
+
+		case "gplaymusic":
+			googleplaymusic.playArtist(cmd.params.musicartist.stringValue);
+			break;
 
 		case "weather":
 			weather.getWeather(cmd.params.city.stringValue)

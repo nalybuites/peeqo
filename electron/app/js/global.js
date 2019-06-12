@@ -18,6 +18,7 @@ const Glasses = require('js/face/glasses')
 const speak = require('js/senses/speak')
 const buttons = require('js/senses/buttons')
 const weather = require('js/skills/weather')
+const gplaymusic = require('js/skills/google_play_music');
 
 const listeners = require('js/events/listeners')()
 
@@ -52,6 +53,9 @@ setTimeout(()=>{
 
 // initiate buttons
 buttons.initializeButtons()
+
+// initialize google play music
+gplaymusic.init();
 
 //initiate leds and run initial animation
 const leds = require('js/senses/leds')
