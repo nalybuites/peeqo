@@ -2,6 +2,7 @@
 
 require('app-module-path').addPath(__dirname)
 
+const config = require('config/config')
 const event = require('js/events/events')
 const mic = require('js/senses/mic')
 
@@ -68,7 +69,7 @@ const servo = new Servo()
 const text = require('js/senses/text')
 
 // set audio volume level. 0 - mute; 1-max
-event.emit('set-volume',0.4)
+event.emit('set-volume', config.volume)
 
 // initiate listening or show wakeword button
 if(process.env.OS == 'unsupported'){
