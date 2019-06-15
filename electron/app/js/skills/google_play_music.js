@@ -48,6 +48,13 @@ function playArtist(artist) {
             return;
         }
 
+        console.log(data);
+        let artists = data.entries.filter(type => type == 2);
+        var artist = artists.sort(function(a, b) {
+            return a.score > b.score;
+        });
+
+        
         var song = data.entries.sort(function(a, b) {
             return a.score > b.score;
         }).shift();
